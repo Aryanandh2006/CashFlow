@@ -1,35 +1,47 @@
+# ==========================================
+# STAGE 1: Ultra-lightweight Frontend Builder
+# ==========================================
+FROM node:22-alpine AS frontend-builder
+WORKDIR /build
+
+COPY package*.json vite.config.js ./
+COPY resources/ ./resources/
+COPY public/ ./public/
+
+RUN npm ci --no-audit --no-fund && \
+    NODE_OPTIONS="--max-old-space-size=350" npm run build
+
+# ==========================================
+# STAGE 2: Core Production PHP-Nginx Runtime
+# ==========================================
 FROM webdevops/php-nginx:8.4
 
 ENV WEB_DOCUMENT_ROOT=/app/public
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV PORT=80
 
+# CRITICAL: Prevent Composer from exhausting Free Tier resources
+ENV COMPOSER_PROCESS_TIMEOUT=600
+ENV COMPOSER_MAX_PARALLEL_HTTP=1
+
 WORKDIR /app
 
-# Copy application files
 COPY . .
 
-# Secure permissions for variables and scripts
 RUN chmod 644 /app/ca.pem
 RUN chmod +x /app/render-deploy.sh
 
-# 1. Install Composer dependencies
-RUN composer install --no-dev --optimize-autoloader
+# Install PHP dependencies step-by-step with zero cache bloat
+RUN composer install \
+    --no-dev \
+    --optimize-autoloader \
+    --no-cache \
+    --prefer-dist \
+    --no-interaction
 
-# 2. Setup NodeSource and install Node cleanly
-RUN apt-get update && apt-get install -y ca-certificates curl gnupg && \
-    mkdir -p /etc/apt/keyrings && \
-    curl -fsSL https://nodesource.com | gpg --dearmor -o /etc/apt/keyrings/nodesource.gpg && \
-    echo "deb [signed-by=/etc/apt/keyrings/nodesource.gpg] https://nodesource.com nodistro main" | tee /etc/apt/sources.list.d/nodesource.list && \
-    apt-get update && apt-get install -y nodejs && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
+# Pull pre-compiled assets directly
+COPY --from=frontend-builder /build/public/build ./public/build
 
-# 3. Memory-optimized Frontend build (Prevents OOM Crashes)
-RUN npm ci --no-audit --no-fund && \
-    NODE_OPTIONS="--max-old-space-size=450" npm run build && \
-    rm -rf node_modules ~/.npm
-
-# 4. Give full storage and asset permissions to the web app user
 RUN chown -R application:application /app/storage /app/bootstrap/cache /app/public
 EXPOSE 80
 
