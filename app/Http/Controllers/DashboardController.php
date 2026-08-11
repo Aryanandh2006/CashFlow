@@ -36,7 +36,7 @@ class DashboardController extends Controller
         
         $dailyData = Transaction::where('user_id', $user->id)
             ->whereBetween('date', [$startOfMonth, $endOfMonth])
-            ->selectRaw("strftime(date, '%d %b') as formatted_date, type, SUM(amount) as total")
+            ->selectRaw("DATE_FORMAT(date, '%d %b') as formatted_date, type, SUM(amount) as total")
             ->groupBy('formatted_date', 'type')
             ->orderBy('date')
             ->get();
