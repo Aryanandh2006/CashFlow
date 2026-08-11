@@ -31,3 +31,4 @@ RUN chown -R application:application /app/storage /app/bootstrap/cache /app/publ
 EXPOSE 80
 
 CMD ["/app/render-deploy.sh"]
+
