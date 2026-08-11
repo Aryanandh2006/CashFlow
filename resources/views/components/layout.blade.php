@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ isset($title) ? $title . ' - CashFlow' : 'CashFlow' }}</title>
-    <link rel="shortcut icon" href="{{ Vite::asset('/public/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('/public/favicon.ico') }}" type="image/x-icon">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
         integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
@@ -112,8 +112,7 @@
                     <li>
                         <button class="is-drawer-close:tooltip is-drawer-close:tooltip-right hover:none"
                             data-tip="CashFlow">
-                            <img class="h-7 w-full" src="{{ Vite::asset('resources/assets/cashflowicon.svg') }}"
-                                alt="Logo">
+                            <img class="h-7 w-full" src="{{ asset('assets/cashflowicon.svg') }}" alt="Logo">
                             <span class="is-drawer-close:hidden">CashFlow</span>
                         </button>
 

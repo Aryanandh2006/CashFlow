@@ -3,7 +3,7 @@
     <td class="header">
         <a href="{{ $url }}" style="display: inline-block;">
             @if (trim($slot) === 'Laravel')
-                <img src="{{ Vite::asset('resources/assets/cashflowlight.svg') }}" class="logo" alt="CashFlow Logo">
+                <img src="{{ asset('assets/cashflowlight.svg') }}" class="logo" alt="CashFlow Logo">
             @else
                 {!! $slot !!}
             @endif

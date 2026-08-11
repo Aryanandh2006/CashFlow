@@ -89,8 +89,8 @@
                 <!-- NAVBAR CENTER: Brand Logo (Always Centered) -->
                 <div class="navbar-center font-bold text-xl text-primary">
                     <a href="/" class="btn btn-ghost text-xl">
-                        <img class="h-9 w-auto" src="{{ Vite::asset('resources/assets/cashflowicon.svg') }}"
-                            alt="Cashflow Logo"> <span>CASHFLOW</span>
+                        <img class="h-9 w-auto" src="{{ asset('assets/cashflowicon.svg') }}" alt="Cashflow Logo">
+                        <span>CASHFLOW</span>
                     </a>
                 </div>
 
@@ -141,7 +141,7 @@
                                     <div class="input">https://cashflow.onrender.com</div>
                                 </div>
                                 <div class="grid place-content-center  bg-base-200">
-                                    <img src="{{ Vite::asset('resources/assets/app.png') }}" alt="">
+                                    <img src="{{ asset('assets/app.png') }}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -276,7 +276,7 @@
 
             <footer class="footer sm:footer-horizontal bg-base-200 p-10 mt-10">
                 <aside>
-                    <img class="h-full w-14" src="{{ Vite::asset('resources/assets/cashflowicon.svg') }}" alt="">
+                    <img class="h-full w-14" src="{{ asset('assets/cashflowicon.svg') }}" alt="">
                     <p>
                         CashFlow
                     </p>
