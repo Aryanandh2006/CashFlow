@@ -16,8 +16,10 @@ RUN chmod +x /app/render-deploy.sh
 # 1. Install Composer dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-# 2. Install Node.js, npm, and compile frontend assets using Vite
-RUN apt-get update && apt-get install -y nodejs npm && \
+# 2. Add NodeSource repository for Node 22 (LTS) and install Node + NPM
+RUN apt-get update && apt-get install -y curl && \
+    curl -fsSL https://nodesource.com | bash - && \
+    apt-get install -y nodejs && \
     npm install && \
     npm run build && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
