@@ -138,7 +138,7 @@
                             </div>
                             <div class="mockup-browser bg-base-100 w-full border border-base-300 shadow-2xl text-left">
                                 <div class="mockup-browser-toolbar">
-                                    <div class="input">https://cashflow.onrender.com</div>
+                                    <div class="input">Cashflow</div>
                                 </div>
                                 <div class="grid place-content-center  bg-base-200">
                                     <img src="{{ asset('assets/app.png') }}" alt="">
