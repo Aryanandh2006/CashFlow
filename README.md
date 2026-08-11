@@ -19,11 +19,15 @@ Track your income and expenses, organize them with categories, and get a clear o
 
 - **Backend:** Laravel 13
 - **Frontend:** Blade + Tailwind CSS + DaisyUI
-- **Database:** MySQL (Hosted on Aiven)
+- **Database:** MySQL (Hosted on aiven.io)
 - **Authentication:** Manual (with Password Reset)
-- **Email:** Resend SMTP
+- **Email:** resend.com (HTTP API)
 
 ## Screenshots
+
+| Home                               | Login                                  | User Settings                           |
+| ---------------------------------- | -------------------------------------- | --------------------------------------- |
+| ![Dashboard](screenshots/home.png) | ![Transactions](screenshots/login.png) | ![Categories](screenshots/settings.png) |
 
 | Dashboard                         | Transactions                                  | Categories                                |
 | --------------------------------- | --------------------------------------------- | ----------------------------------------- |
