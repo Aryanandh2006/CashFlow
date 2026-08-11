@@ -25,9 +25,9 @@ Track your income and expenses, organize them with categories, and get a clear o
 
 ## Screenshots
 
-| Home                               | Login                                  | User Settings                           |
-| ---------------------------------- | -------------------------------------- | --------------------------------------- |
-| ![Dashboard](screenshots/home.png) | ![Transactions](screenshots/login.png) | ![Categories](screenshots/settings.png) |
+| Home                          | Login                           | User Settings                         |
+| ----------------------------- | ------------------------------- | ------------------------------------- |
+| ![Home](screenshots/home.png) | ![Login](screenshots/login.png) | ![Settings](screenshots/settings.png) |
 
 | Dashboard                         | Transactions                                  | Categories                                |
 | --------------------------------- | --------------------------------------------- | ----------------------------------------- |
