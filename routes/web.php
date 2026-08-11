@@ -36,7 +36,7 @@ Route::view('/login', 'Auth.login')
     ->name('login');
 Route::post('login', login::class);
 
-Route::view('/register', 'auth.register')
+Route::view('/register', 'Auth.register')
     ->middleware('guest')
     ->name('register');
 Route::post('register', register::class);
