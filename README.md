@@ -25,8 +25,6 @@ Track your income and expenses, organize them with categories, and get a clear o
 
 ## Screenshots
 
-> Add your screenshots here
-
 | Dashboard                         | Transactions                                  | Categories                                |
 | --------------------------------- | --------------------------------------------- | ----------------------------------------- |
 | ![Dashboard](screenshots/app.png) | ![Transactions](screenshots/transactions.png) | ![Categories](screenshots/categories.png) |

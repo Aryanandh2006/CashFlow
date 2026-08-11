@@ -31,12 +31,12 @@ Route::middleware('auth')->group(function () {
     Route::put('/settings', [ProfileController::class, 'updatePassword'])->name('profile.password');
 });
 
-Route::view('/login', 'Auth.login')
+Route::view('/login', 'Authlogin')
     ->middleware('guest')
     ->name('login');
 Route::post('login', login::class);
 
-Route::view('/register', 'Auth.register')
+Route::view('/register', 'Authregister')
     ->middleware('guest')
     ->name('register');
 Route::post('register', register::class);
