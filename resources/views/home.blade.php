@@ -132,7 +132,7 @@
                                     Track your income and expenses effortlessly. Get clear insights and stay on top of
                                     your finances — all in one simple place.
                                 </p>
-                                <button class="btn btn-primary">Get Started</button>
+                                <a href="/login" class="btn btn-primary">Get Started</a>
 
 
                             </div>
